@@ -9,7 +9,6 @@ import './editor.scss';
  * External dependencies
  */
 import { assign } from 'lodash';
-// import { classnames } from 'classnames';
 
 /**
  * WordPress dependencies
@@ -56,11 +55,9 @@ export function withInspectorControl( BlockEdit ) {
 
 	const WrappedGCV = ( props ) => {
 
-		const hasGCVisibility = hasBlockSupport( props.name, 'customClassName', true );
-console.log( hasGCVisibility );
-		var thisThing = [
+		return [
 			<BlockEdit key="block-edit-visibility" { ...props } />,
-			hasGCVisibility && <InspectorControls key="inspector-visibility">
+			props.isSelected && <InspectorControls key="inspector-visibility">
 				<TextControl
 					label={ __( 'Block Visibility' ) }
 					value={ props.attributes.gcvVisibility || '' }
@@ -72,8 +69,6 @@ console.log( hasGCVisibility );
 				/>
 			</InspectorControls>,
 		];
-
-		return thisThing;
 
 	};
 

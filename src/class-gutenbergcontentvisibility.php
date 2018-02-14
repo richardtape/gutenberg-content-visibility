@@ -93,7 +93,7 @@ class GutenbergContentVisibility {
 			return $content;
 		}
 
-		// Loop over parsed blocks and look for gcv-visibility attribute.
+		// Loop over parsed blocks and look for gcvVisibility attribute.
 		foreach ( $parsed as $key => $block ) {
 
 			// If we don't have any attributes, bail.
@@ -102,7 +102,7 @@ class GutenbergContentVisibility {
 			}
 
 			// This is our custom visibility attribute. If it doesn't exist, bail.
-			if ( ! isset( $block['attrs']['gcv-visibility'] ) ) {
+			if ( ! isset( $block['attrs']['gcvVisibility'] ) ) {
 				continue;
 			}
 
@@ -116,7 +116,7 @@ class GutenbergContentVisibility {
 	}//end the_content__only_show_appropriate_blocks()
 
 	/**
-	 * Determines the visibility of the block based on the gcv-visibility attribute
+	 * Determines the visibility of the block based on the gcvVisibility attribute
 	 * and then removes the block from the content if necessary.
 	 *
 	 * @since 0.1.0
@@ -128,7 +128,7 @@ class GutenbergContentVisibility {
 	 */
 	public function remove_or_replace( $content = '', $block = array(), $key = null ) {
 
-		$visibility = $block['attrs']['gcv-visibility'];
+		$visibility = $block['attrs']['gcvVisibility'];
 
 		// Empty visibility? Leave untouched.
 		if ( empty( $visibility ) ) {
@@ -174,7 +174,7 @@ class GutenbergContentVisibility {
 	}//end remove_or_replace()
 
 	/**
-	 * Determines the visibility of the block based on the gcv-visibility attribute
+	 * Determines the visibility of the block based on the gcvVisibility attribute
 	 * and then removes the block from the content if necessary.
 	 *
 	 * @since 0.1.0
